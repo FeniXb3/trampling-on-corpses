@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
     {
         isJumping = true;
         rb.AddForce(movement.CalculateJump(), ForceMode2D.Impulse);
-        animator.SetBool("IsJumping", true);
+        animator.SetTrigger("Jump");
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         if (col.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
-            animator.SetBool("IsJumping", false);
+            animator.SetTrigger("Land");
         }
     }
 
