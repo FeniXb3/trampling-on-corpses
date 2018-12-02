@@ -21,16 +21,7 @@ public class Player : MonoBehaviour
         movement = new Movement(speed, jumpForce);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
-        if (inputService == null)
-        {
-            inputService = new UnityInputService();
-        }
-
-        if (timeService == null)
-        {
-            timeService = new UnityTimeService();
-        }
+        LoadServices();
     }
 
     private void FixedUpdate()
@@ -47,6 +38,19 @@ public class Player : MonoBehaviour
         if (ShouldJump())
         {
             Jump();
+        }
+    }
+
+    private void LoadServices()
+    {
+        if (inputService == null)
+        {
+            inputService = new UnityInputService();
+        }
+
+        if (timeService == null)
+        {
+            timeService = new UnityTimeService();
         }
     }
 
@@ -72,8 +76,6 @@ public class Player : MonoBehaviour
         var direction = Vector2.down;
         var hit = Physics2D.Raycast(position, direction, distance, layerMask);
 
-        Debug.DrawRay(position, direction, Color.green);
-
         return hit.collider != null;
     }
 
@@ -94,5 +96,10 @@ public class Player : MonoBehaviour
             isJumping = false;
             animator.SetTrigger("Land");
         }
+    }
+
+    private void Death()
+    {
+        GetComponent<GrayOut>().enabled = true;
     }
 }

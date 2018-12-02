@@ -16,4 +16,5 @@ public class Colorizer : MonoBehaviour
         var randomColor = Random.ColorHSV(0, 1f, .25f, .25f, .75f, .75f);
         objectToColor.color = randomColor;
     }
+    
 }
