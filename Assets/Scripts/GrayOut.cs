@@ -10,17 +10,13 @@ public class GrayOut : MonoBehaviour
     private Color finalColor;
     private UnityTimeService timeService;
 
-    private float hue;
-    private float saturation;
-    private float value;
     private float time;
 
     private void Start()
     {
         LoadServices();
         initialColor = objectToColor.color;
-        Color.RGBToHSV(initialColor, out hue, out saturation, out value);
-        finalColor = Color.HSVToRGB(hue, 0, .25f);
+        finalColor = GenerateFinalColor(initialColor);
     }
 
     private void Update()
@@ -38,5 +34,16 @@ public class GrayOut : MonoBehaviour
         {
             timeService = new UnityTimeService();
         }
+    }
+
+    private Color GenerateFinalColor(Color initialColor)
+    {
+        float hue;
+        float saturation;
+        float value;
+        
+        Color.RGBToHSV(initialColor, out hue, out saturation, out value);
+        
+        return Color.HSVToRGB(hue, 0, .25f);
     }
 }
