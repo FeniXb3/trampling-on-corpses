@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
             MoveHorizontally();
         }
 
-        if (unityService.GetButton("Jump") && !isJumping)
+        if (shouldJump())
         {
             Jump();
         }
