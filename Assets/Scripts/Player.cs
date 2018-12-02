@@ -19,13 +19,14 @@ public class Player : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
-    
+
     private void Start()
     {
         movement = new Movement(speed, jumpForce);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         LoadServices();
+        SetSpawnPosition();
     }
 
     private void FixedUpdate()
@@ -55,6 +56,15 @@ public class Player : MonoBehaviour
         if (timeService == null)
         {
             timeService = new UnityTimeService();
+        }
+    }
+
+    private void SetSpawnPosition()
+    {
+        var spawnPoint = GameObject.FindWithTag("SpawnPoint");
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.transform.position;
         }
     }
 
@@ -100,10 +110,5 @@ public class Player : MonoBehaviour
             isJumping = false;
             animator.SetTrigger("Land");
         }
-    }
-
-    private void Death()
-    {
-        GetComponent<GrayOut>().enabled = true;
     }
 }

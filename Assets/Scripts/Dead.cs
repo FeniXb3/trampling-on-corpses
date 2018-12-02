@@ -2,6 +2,8 @@
 
 public class Dead : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
     private void Start()
     {
         DisableInput();
