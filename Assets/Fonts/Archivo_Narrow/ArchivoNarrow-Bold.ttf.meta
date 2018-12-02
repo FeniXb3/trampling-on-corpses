@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: c67e3c26e4fd14f6c858e6a9962b5d9c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Archivo Narrow
+  fontNames:
+  - Archivo Narrow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8353f1b1cfca04bf7a7c01a0565cf8c3, type: 3}
+  - {fileID: 12800000, guid: 5f82aa88cf2f5494c89b4f9e05d784ed, type: 3}
+  - {fileID: 12800000, guid: 8719c3a9c20a347f684e8f21badafb07, type: 3}
+  - {fileID: 12800000, guid: 8ded5fdaa3ed542a1b68d9beff36524a, type: 3}
+  - {fileID: 12800000, guid: 71f35ceaa098049bcb6a01d0a902f19f, type: 3}
+  - {fileID: 12800000, guid: 1932513e5983349128172e9cf0a1b18b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: b6ffd9ec735da4f1bba5eb86b42026fa
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Catamaran
+  fontNames:
+  - Catamaran
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 913288402256e48eb8752f1a8b61e99b, type: 3}
+  - {fileID: 12800000, guid: 39960e432cb484a0cbcb2c057e5661ad, type: 3}
+  - {fileID: 12800000, guid: a869c4665b59f485faa83e55b51c33ba, type: 3}
+  - {fileID: 12800000, guid: 0972fc57d17684a3abc96f168e9b8106, type: 3}
+  - {fileID: 12800000, guid: 712af02a19d4242e8802672d5640e4bf, type: 3}
+  - {fileID: 12800000, guid: 717bf63b7f13148e9a60c84861be2fca, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
