@@ -6,6 +6,14 @@ public class Dead : MonoBehaviour
     {
         DisableInput();
         FadeOutCorpse();
+        PlayDyingAnimation();
+    }
+
+    private void PlayDyingAnimation()
+    {
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Die");
+        animator.SetBool("Dead", true);
     }
 
     private void DisableInput()
