@@ -2,7 +2,6 @@ using UnityEngine;
 
 public interface IInputService
 {
-    float GetDeltaTime();
     float GetAxisRaw(string axisName);
     bool GetButton(string buttonName);
 }
