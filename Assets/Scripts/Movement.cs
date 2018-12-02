@@ -3,10 +3,12 @@
 public class Movement
 {
     private readonly float speed;
+    private readonly float jumpForce;
 
-    public Movement(float speed)
+    public Movement(float speed, float jumpForce)
     {
         this.speed = speed;
+        this.jumpForce = jumpForce;
     }
 
     public float GetHorizontalSpeed()
@@ -20,7 +22,7 @@ public class Movement
         return new Vector3(x, 0, 0);
     }
 
-    public Vector2 CalculateJump(float jumpForce)
+    public Vector2 CalculateJump()
     {
         return new Vector2(0, jumpForce);
     }

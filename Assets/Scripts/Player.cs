@@ -4,23 +4,27 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private GameObject body;
 
-    [SerializeField] private IUnityService unityService;
+    private IUnityService unityService;
 
-    private Rigidbody2D rb;
     private Movement movement;
+    private SpriteRenderer bodySpriteRenderer;
+    private Rigidbody2D rb;
+
     private bool isJumping;
 
     private void Start()
     {
+        movement = new Movement(speed, jumpForce);
         rb = GetComponent<Rigidbody2D>();
-        movement = new Movement(speed);
-
 
         if (unityService == null)
         {
             unityService = new UnityService();
         }
+
+        ObtainRandomColor();
     }
 
     private void FixedUpdate()
@@ -48,9 +52,9 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         isJumping = true;
-        rb.AddForce(movement.CalculateJump(jumpForce), ForceMode2D.Impulse);
+        rb.AddForce(movement.CalculateJump(), ForceMode2D.Impulse);
     }
-    
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ground"))
@@ -59,4 +63,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void ObtainRandomColor()
+    {
+        var randomColor = Random.ColorHSV(0, 1f, .25f, .25f, .75f, .75f);
+        body.GetComponent<SpriteRenderer>().color = randomColor;
+    }
 }
