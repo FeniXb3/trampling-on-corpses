@@ -8,6 +8,13 @@ public class Dead : MonoBehaviour
         FadeOutCorpse();
         PlayDyingAnimation();
         MakeCorpseWalkable();
+        BlockPosition();
+    }
+
+    private void BlockPosition()
+    {
+        var rb = GetComponent<Rigidbody2D>();
+        rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
     }
 
     private void MakeCorpseWalkable()
