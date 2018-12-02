@@ -7,6 +7,13 @@ public class Dead : MonoBehaviour
         DisableInput();
         FadeOutCorpse();
         PlayDyingAnimation();
+        MakeCorpseWalkable();
+    }
+
+    private void MakeCorpseWalkable()
+    {
+        gameObject.tag = "Ground";
+        gameObject.layer = LayerMask.NameToLayer("Ground");
     }
 
     private void PlayDyingAnimation()
