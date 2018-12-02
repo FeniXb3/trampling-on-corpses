@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private GameObject body;
 
-    private IUnityService unityService;
+    private IInputService inputService;
+    private ITimeService timeService;
 
     private Movement movement;
     private Animator animator;
