@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
         var position = transform.position;
         var direction = Vector2.down;
-        var hit = Physics2D.Raycast(position, direction, distance, layerMask);
+        var hit = Physics2D.Raycast(position, direction, distance, groundedLayerMask);
 
         return hit.collider != null;
     }
