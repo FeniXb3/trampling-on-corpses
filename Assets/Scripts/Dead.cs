@@ -17,6 +17,7 @@ public class Dead : MonoBehaviour
     {
         var rb = GetComponent<Rigidbody2D>();
         rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
+        rb.mass = 999999f; // my suggestion of fixing being able to move dead corpse around
     }
 
     private void MakeCorpseWalkable()
