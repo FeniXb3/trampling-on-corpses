@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        SetSpawnPosition();
     }
 
     private void Start()
@@ -33,7 +34,6 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         LoadServices();
-        SetSpawnPosition();
     }
 
     private void FixedUpdate()
