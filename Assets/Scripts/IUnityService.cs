@@ -6,7 +6,7 @@ public interface IInputService
     bool GetButton(string buttonName);
 }
 
-class UnityService : IUnityService
+class UnityInputService : IInputService
 {
     public float GetDeltaTime()
     {
