@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
 
     private Movement movement;
     private Animator animator;
-    private SpriteRenderer bodySpriteRenderer;
     private Rigidbody2D rb;
 
     private bool isJumping;
