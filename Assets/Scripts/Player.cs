@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -20,7 +21,8 @@ public class Player : MonoBehaviour
     private bool jumpCooldown;
     private bool isGrounded;
 
-    private readonly RaycastHit2D[] contactPoints = new RaycastHit2D[3];
+    private readonly Vector2[] raycastOffsets = new Vector2[3] {new Vector2(-0.5f, 0f), new Vector2(0f, 0f), new Vector2(0.5f, 0f)}; 
+    private readonly List<RaycastHit2D> contactPoints = new List<RaycastHit2D>();
 
     private void Awake()
     {
@@ -97,13 +99,11 @@ public class Player : MonoBehaviour
     {
         const float distance = 1.1f;
         var direction = Vector2.down;
-        var offset = -0.5f;
 
-        for (var i = 0; i < contactPoints.Length; i++)
+        foreach (var offset in raycastOffsets)
         {
-            var position = new Vector2(transform.position.x + offset, transform.position.y);
-            contactPoints[i] = Physics2D.Raycast(position, direction, distance, groundedLayerMask);
-            offset += 0.5f;
+            var position = (Vector2) transform.position + offset;
+            contactPoints.Add(Physics2D.Raycast(position, direction, distance, groundedLayerMask)););
         }
 
         return contactPoints.Any(contactPoint => contactPoint.collider != null);
