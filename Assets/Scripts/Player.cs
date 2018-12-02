@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private GameObject body;
+    [SerializeField] private LayerMask layerMask;
 
     private IInputService inputService;
     private ITimeService timeService;
@@ -72,13 +73,17 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Jump");
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private bool IsGrounded()
     {
-        if (col.gameObject.CompareTag("Ground"))
-        {
-            isJumping = false;
-            animator.SetTrigger("Land");
-        }
+        const float distance = 1.1f;
+
+        var position = transform.position;
+        var direction = Vector2.down;
+        var hit = Physics2D.Raycast(position, direction, distance, layerMask);
+
+        Debug.DrawRay(position, direction, Color.green);
+
+        return hit.collider != null;
     }
 
     private bool ShouldMove()
@@ -88,6 +93,15 @@ public class Player : MonoBehaviour
 
     private bool ShouldJump()
     {
-        return inputService.GetButton("Jump") && !isJumping;
+        return inputService.GetButton("Jump") && !isJumping && IsGrounded();
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Ground") && IsGrounded())
+        {
+            isJumping = false;
+            animator.SetTrigger("Land");
+        }
     }
 }
