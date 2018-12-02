@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
 
     private bool isJumping;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+    
     private void Start()
     {
         movement = new Movement(speed, jumpForce);
