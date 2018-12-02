@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
         foreach (var offset in raycastOffsets)
         {
             var position = (Vector2) transform.position + offset;
-            contactPoints.Add(Physics2D.Raycast(position, direction, distance, groundedLayerMask)););
+            contactPoints.Add(Physics2D.Raycast(position, direction, distance, groundedLayerMask));
         }
 
         return contactPoints.Any(contactPoint => contactPoint.collider != null);
