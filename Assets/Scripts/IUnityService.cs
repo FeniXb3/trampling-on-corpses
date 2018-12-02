@@ -21,6 +21,6 @@ class UnityService : IUnityService
 
     public bool GetButton(string buttonName)
     {
-        return Input.GetButton("Jump");
+        return Input.GetButton(buttonName);
     }
 }
