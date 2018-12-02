@@ -72,8 +72,6 @@ public class Player : MonoBehaviour
         var direction = Vector2.down;
         var hit = Physics2D.Raycast(position, direction, distance, layerMask);
 
-        Debug.DrawRay(position, direction, Color.green);
-
         return hit.collider != null;
     }
 
