@@ -1,16 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+    [SerializeField] private float speed;
+    [SerializeField] private Movement movement;
+    [SerializeField] private IUnityService unityService;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        movement = new Movement(speed);
+        if (unityService == null)
+        {
+            unityService = new UnityService();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position += movement.Calculate(
+            unityService.GetAxisRaw("Horizontal"),
+            unityService.GetDeltaTime());
+    }
 }
