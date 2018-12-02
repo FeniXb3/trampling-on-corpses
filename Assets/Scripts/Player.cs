@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private IUnityService unityService;
 
     private Movement movement;
+    private Animator animator;
     private SpriteRenderer bodySpriteRenderer;
     private Rigidbody2D rb;
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         movement = new Movement(speed, jumpForce);
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         if (unityService == null)
@@ -30,6 +32,8 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         var horizontalSpeed = movement.GetHorizontalSpeed();
+
+        animator.SetFloat("HorizontalSpeed", horizontalSpeed);
 
         if (horizontalSpeed > 0) // maybe more optimised than adding Vector3(0,0,0) to position even when standing still
         {
@@ -53,6 +57,7 @@ public class Player : MonoBehaviour
     {
         isJumping = true;
         rb.AddForce(movement.CalculateJump(), ForceMode2D.Impulse);
+        animator.SetBool("IsJumping", true);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -60,6 +65,7 @@ public class Player : MonoBehaviour
         if (col.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
+            animator.SetBool("IsJumping", false);
         }
     }
 
