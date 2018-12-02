@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask groundedLayerMask;
 
     private IInputService inputService;
     private ITimeService timeService;
