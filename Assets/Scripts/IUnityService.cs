@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IUnityService
+public interface IInputService
 {
     float GetDeltaTime();
     float GetAxisRaw(string axisName);
