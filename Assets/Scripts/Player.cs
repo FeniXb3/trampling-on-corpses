@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
         animator.SetFloat("HorizontalSpeed", horizontalSpeed);
 
-        if (horizontalSpeed > 0) // maybe more optimised than adding Vector3(0,0,0) to position even when standing still
+        if (shouldMove()) // maybe more optimised than adding Vector3(0,0,0) to position even when standing still
         {
             MoveHorizontally();
         }
