@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 
-public class KillOnTrigger : MonoBehaviour 
+public class KillOnTrigger : MonoBehaviour
 {
+    private SpawnPoint spawnPoint;
+
+    private void Start()
+    {
+        spawnPoint = GameObject.FindWithTag("SpawnPoint").GetComponent<SpawnPoint>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (ShouldKill(other))
@@ -18,5 +25,6 @@ public class KillOnTrigger : MonoBehaviour
     private void Kill(GameObject objectToKill)
     {
         objectToKill.AddComponent<Dead>();
+        spawnPoint.SpawnNewPlayer();
     }
 }
