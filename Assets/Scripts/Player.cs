@@ -22,9 +22,14 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        if (unityService == null)
+        if (inputService == null)
         {
-            unityService = new UnityService();
+            inputService = new UnityInputService();
+        }
+
+        if (timeService == null)
+        {
+            timeService = new UnityTimeService();
         }
 
         ObtainRandomColor();
@@ -36,22 +41,28 @@ public class Player : MonoBehaviour
 
         animator.SetFloat("HorizontalSpeed", horizontalSpeed);
 
-        if (shouldMove()) // maybe more optimised than adding Vector3(0,0,0) to position even when standing still
+        if (ShouldMove()) // maybe more optimised than adding Vector3(0,0,0) to position even when standing still
         {
             MoveHorizontally();
         }
 
-        if (shouldJump())
+        if (ShouldJump())
         {
             Jump();
         }
     }
 
+    private void ObtainRandomColor()
+    {
+        var randomColor = Random.ColorHSV(0, 1f, .25f, .25f, .75f, .75f);
+        body.GetComponent<SpriteRenderer>().color = randomColor;
+    }
+
     private void MoveHorizontally()
     {
         transform.position += movement.CalculateHorizontal(
-            unityService.GetAxisRaw("Horizontal"),
-            unityService.GetDeltaTime());
+            inputService.GetAxisRaw("Horizontal"),
+            timeService.GetDeltaTime());
     }
 
     private void Jump()
@@ -70,9 +81,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ObtainRandomColor()
+    private bool ShouldMove()
     {
-        var randomColor = Random.ColorHSV(0, 1f, .25f, .25f, .75f, .75f);
-        body.GetComponent<SpriteRenderer>().color = randomColor;
+        return movement.GetHorizontalSpeed() > 0;
+    }
+
+    private bool ShouldJump()
+    {
+        return inputService.GetButton("Jump") && !isJumping;
     }
 }

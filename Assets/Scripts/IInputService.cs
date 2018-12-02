@@ -8,11 +8,6 @@ public interface IInputService
 
 class UnityInputService : IInputService
 {
-    public float GetDeltaTime()
-    {
-        return Time.deltaTime;
-    }
-
     public float GetAxisRaw(string axisName)
     {
         return Input.GetAxisRaw(axisName);
