@@ -4,7 +4,6 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
-    [SerializeField] private GameObject body;
     [SerializeField] private LayerMask layerMask;
 
     private IInputService inputService;
@@ -32,8 +31,6 @@ public class Player : MonoBehaviour
         {
             timeService = new UnityTimeService();
         }
-
-        ObtainRandomColor();
     }
 
     private void FixedUpdate()
@@ -51,12 +48,6 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
-    }
-
-    private void ObtainRandomColor()
-    {
-        var randomColor = Random.ColorHSV(0, 1f, .25f, .25f, .75f, .75f);
-        body.GetComponent<SpriteRenderer>().color = randomColor;
     }
 
     private void MoveHorizontally()
