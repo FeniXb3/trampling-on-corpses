@@ -387,6 +387,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1715189501542142, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
   m_IsPrefabAsset: 0
@@ -582,6 +586,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1418241913895488, guid: ee0aa942d8da8495fb14546a573d4c6a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee0aa942d8da8495fb14546a573d4c6a, type: 2}
   m_IsPrefabAsset: 0
@@ -690,6 +698,11 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 212877002961484046, guid: 4918053087949544abbbd36303a23b53,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4918053087949544abbbd36303a23b53, type: 2}
   m_IsPrefabAsset: 0
@@ -753,7 +766,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4685569900294132, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4685569900294132, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -813,7 +826,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4685569900294132, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4685569900294132, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -886,7 +899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 200}
+  m_AnchoredPosition: {x: 285, y: 250}
   m_SizeDelta: {x: 747.9, y: 190.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906189909
@@ -985,6 +998,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1715189501542142, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
   m_IsPrefabAsset: 0
@@ -1043,6 +1060,10 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715189501542142, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3edbf3fe638134e0987d193f6dfbbc0d, type: 2}

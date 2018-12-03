@@ -44,6 +44,6 @@ public class GrayOut : MonoBehaviour
         
         Color.RGBToHSV(initialColor, out hue, out saturation, out value);
         
-        return Color.HSVToRGB(hue, 0, .25f);
+        return Color.HSVToRGB(hue, 0, .20f);
     }
 }
