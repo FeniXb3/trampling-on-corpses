@@ -26,4 +26,11 @@ public static class PlayerPrefsExtensions
 
         return rKey && gKey && bKey;
     }
+
+    public static void DeleteColorKey(string key)
+    {
+        PlayerPrefs.DeleteKey(string.Format("{0}_r", key));
+        PlayerPrefs.DeleteKey(string.Format("{0}_r", key));
+        PlayerPrefs.DeleteKey(string.Format("{0}_r", key));
+    }
 }
