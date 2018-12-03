@@ -2,8 +2,8 @@
 
 public class Dead : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;
-
+    public static int TotalDeaths;
+    
     private void Start()
     {
         ClearSavedPlayerColor();
@@ -12,6 +12,7 @@ public class Dead : MonoBehaviour
         PlayDyingAnimation();
         MakeCorpseWalkable();
         BlockPosition();
+        TotalDeaths++;
     }
 
     private void ClearSavedPlayerColor()

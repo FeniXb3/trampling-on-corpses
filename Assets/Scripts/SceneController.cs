@@ -14,12 +14,13 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator LoadScene()
     {
-        var asyncOperation = SceneManager.LoadSceneAsync(GetNextSceneBuildIndex());
-        asyncOperation.allowSceneActivation = false;
-
+//        var asyncOperation = SceneManager.LoadSceneAsync(GetNextSceneBuildIndex());
+//        asyncOperation.allowSceneActivation = false;
+//
         yield return new WaitForSeconds(1f);
-
-        asyncOperation.allowSceneActivation = true;
+//
+//        asyncOperation.allowSceneActivation = true;
+        SceneManager.LoadScene(GetNextSceneBuildIndex());
     }
 
     private int GetNextSceneBuildIndex()

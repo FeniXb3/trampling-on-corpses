@@ -19,14 +19,17 @@ public class Player : MonoBehaviour
 
     private bool isJumping;
     private bool jumpCooldown;
+    private bool landCooldown;
     private bool isGrounded;
 
-    private readonly Vector2[] raycastOffsets = new Vector2[3] {new Vector2(-0.5f, 0f), new Vector2(0f, 0f), new Vector2(0.5f, 0f)}; 
+    private readonly Vector2[] raycastOffsets = new Vector2[3]
+        {new Vector2(-0.5f, 0f), new Vector2(0f, 0f), new Vector2(0.5f, 0f)};
+
     private readonly List<RaycastHit2D> contactPoints = new List<RaycastHit2D>();
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         SetSpawnPosition();
     }
 
@@ -123,15 +126,33 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
+            Land();
+        }
+    }
+
+    private void Land()
+    {
+        isJumping = false;
+
+        if (!landCooldown)
+        {
             animator.SetTrigger("Land");
         }
+
+        StartCoroutine(LandCooldown());
     }
 
     IEnumerator JumpCooldown()
     {
         jumpCooldown = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         jumpCooldown = false;
+    }
+
+    IEnumerator LandCooldown()
+    {
+        landCooldown = true;
+        yield return new WaitForSeconds(0.6f);
+        landCooldown = false;
     }
 }
