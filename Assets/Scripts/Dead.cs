@@ -6,11 +6,17 @@ public class Dead : MonoBehaviour
 
     private void Start()
     {
+        ClearSavedPlayerColor();
         DisableInput();
         FadeOutCorpse();
         PlayDyingAnimation();
         MakeCorpseWalkable();
         BlockPosition();
+    }
+
+    private void ClearSavedPlayerColor()
+    {
+        PlayerPrefsExtensions.DeleteColorKey("playerColor");
     }
 
     private void BlockPosition()
