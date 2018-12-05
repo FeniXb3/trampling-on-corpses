@@ -33,6 +33,6 @@ public class Chest : MonoBehaviour
         fadePanel.SetTrigger("SceneExit");
         theEndAnim.SetTrigger("Show");
         sacrificesAnim.SetTrigger("Show");
-        sacrifices.text = "you sacrificed " + Dead.TotalDeaths + " lives";
+        sacrifices.text = $"you sacrificed {Dead.TotalDeaths} lives";
     }
 }
