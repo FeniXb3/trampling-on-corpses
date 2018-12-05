@@ -20,11 +20,11 @@ public static class PlayerPrefsExtensions
 
     public static bool HasColorKey(string key)
     {
-        var rKey = PlayerPrefs.HasKey($"{key}_r");
-        var gKey = PlayerPrefs.HasKey($"{key}_g");
-        var bKey = PlayerPrefs.HasKey($"{key}_b");
+        var hasR = PlayerPrefs.HasKey($"{key}_r");
+        var hasG = PlayerPrefs.HasKey($"{key}_g");
+        var hasB = PlayerPrefs.HasKey($"{key}_b");
 
-        return rKey && gKey && bKey;
+        return hasR && hasG && hasB;
     }
 
     public static void DeleteColorKey(string key)
