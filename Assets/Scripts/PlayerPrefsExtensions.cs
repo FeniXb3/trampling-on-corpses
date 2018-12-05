@@ -30,7 +30,7 @@ public static class PlayerPrefsExtensions
     public static void DeleteColorKey(string key)
     {
         PlayerPrefs.DeleteKey($"{key}_r");
-        PlayerPrefs.DeleteKey($"{key}_r");
-        PlayerPrefs.DeleteKey($"{key}_r");
+        PlayerPrefs.DeleteKey($"{key}_g");
+        PlayerPrefs.DeleteKey($"{key}_b");
     }
 }
