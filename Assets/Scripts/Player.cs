@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCooldownTime = 0.6f;
     [SerializeField] private LayerMask groundedLayerMask;
 
     private IInputService inputService;
@@ -126,14 +127,14 @@ public class Player : MonoBehaviour
     IEnumerator JumpCooldown()
     {
         jumpCooldown = true;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(jumpCooldownTime);
         jumpCooldown = false;
     }
 
     IEnumerator LandCooldown()
     {
         landCooldown = true;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(jumpCooldownTime);
         landCooldown = false;
     }
 }
