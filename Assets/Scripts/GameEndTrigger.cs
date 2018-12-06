@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Chest : MonoBehaviour
+public class GameEndTrigger : MonoBehaviour
 {
     [SerializeField] private ParticleSystem shineBurst;
     [SerializeField] private Animator fadePanel;

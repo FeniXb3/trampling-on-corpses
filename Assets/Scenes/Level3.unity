@@ -1155,6 +1155,26 @@ Prefab:
       propertyPath: sacrificesAnim
       value: 
       objectReference: {fileID: 916083282}
+    - target: {fileID: 114770438626004080, guid: 4682a6f2ccc924d6d9188fe31a035857,
+        type: 2}
+      propertyPath: sacrifices
+      value: 
+      objectReference: {fileID: 916083283}
+    - target: {fileID: 114770438626004080, guid: 4682a6f2ccc924d6d9188fe31a035857,
+        type: 2}
+      propertyPath: sacrificesAnim
+      value: 
+      objectReference: {fileID: 916083282}
+    - target: {fileID: 114770438626004080, guid: 4682a6f2ccc924d6d9188fe31a035857,
+        type: 2}
+      propertyPath: theEndAnim
+      value: 
+      objectReference: {fileID: 2104016490}
+    - target: {fileID: 114770438626004080, guid: 4682a6f2ccc924d6d9188fe31a035857,
+        type: 2}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 1214814328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4682a6f2ccc924d6d9188fe31a035857, type: 2}
   m_IsPrefabAsset: 0
