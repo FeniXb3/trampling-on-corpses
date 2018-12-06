@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundedLayerMask;
-    [SerializeField] private GameObject spawnPointPrefab;
 
     private IInputService inputService;
     private ITimeService timeService;
@@ -26,13 +25,7 @@ public class Player : MonoBehaviour
         {new Vector2(-0.5f, 0f), new Vector2(0f, 0f), new Vector2(0.5f, 0f)};
 
     private readonly List<RaycastHit2D> contactPoints = new List<RaycastHit2D>();
-
-    private void Awake()
-    {
-        //DontDestroyOnLoad(gameObject);
-        SetSpawnPosition();
-    }
-
+    
     private void Start()
     {
         movement = new Movement(speed, jumpForce);
@@ -70,18 +63,6 @@ public class Player : MonoBehaviour
         {
             timeService = new UnityTimeService();
         }
-    }
-
-    private void SetSpawnPosition()
-    {
-        var spawnPoint = GameObject.FindWithTag("SpawnPoint");
-
-        if (spawnPoint == null)
-        {
-            spawnPoint = Instantiate(spawnPointPrefab, transform.position, transform.rotation);
-        }
-
-        transform.position = spawnPoint.transform.position;
     }
 
     private void MoveHorizontally()
