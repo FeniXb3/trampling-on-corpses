@@ -6,13 +6,13 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private Animator fadePanel;
 
-    public void NextLevel()
+    public void NextLevel(string sceneName)
     {
         fadePanel.SetTrigger("SceneExit");
-        StartCoroutine(LoadScene());
+        StartCoroutine(LoadScene(sceneName));
     }
 
-    private IEnumerator LoadScene()
+    private IEnumerator LoadScene(string sceneName)
     {
 //        var asyncOperation = SceneManager.LoadSceneAsync(GetNextSceneBuildIndex());
 //        asyncOperation.allowSceneActivation = false;
@@ -20,11 +20,6 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1f);
 //
 //        asyncOperation.allowSceneActivation = true;
-        SceneManager.LoadScene(GetNextSceneBuildIndex());
-    }
-
-    private int GetNextSceneBuildIndex()
-    {
-        return SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(sceneName);
     }
 }

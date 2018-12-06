@@ -750,6 +750,11 @@ Prefab:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 2070982558}
+    - target: {fileID: 114024828412538846, guid: fc95b11a6f62e47c6b9c38a855a1b856,
+        type: 2}
+      propertyPath: sceneToLoad
+      value: Level1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc95b11a6f62e47c6b9c38a855a1b856, type: 2}
   m_IsPrefabAsset: 0
