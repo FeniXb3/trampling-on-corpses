@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class GameEndTrigger : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem shineBurst;
     [SerializeField] private Animator theEndAnim;
     [SerializeField] private Animator sacrificesAnim;
     [SerializeField] private Text sacrifices;
@@ -14,7 +13,7 @@ public class GameEndTrigger : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             EventManager.Instance.TriggerEvent(EventType.EndGame, Dead.TotalDeaths);
-            shineBurst.Emit(100);
+            
             StartCoroutine(ShowEndScreen());
         }
     }
