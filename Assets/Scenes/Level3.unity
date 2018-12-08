@@ -1116,6 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 916083283}
   eventType: 2
+  placeholder: '{arg}'
   textTemplate: you sacrificed {arg} lives
   delay: 1.5
 --- !u!4 &1009941425 stripped
