@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-public class SetAnimatorTriggerOnEvent : MonoBehaviour
+public class SetAnimatorBoolOnEvent : MonoBehaviour
 {
 	[SerializeField] private Animator animator;
 	[SerializeField] private EventType eventType;
-	[SerializeField] private string triggerName;
+	[SerializeField] private string boolName;
+	[SerializeField] private bool targetValue = true;
 	[SerializeField] private bool runOnce = true;
 	
 	private void OnEnable()
@@ -19,7 +20,7 @@ public class SetAnimatorTriggerOnEvent : MonoBehaviour
 
 	private void OnEvent(object arg)
 	{
-		animator.SetTrigger(triggerName);
+		animator.SetBool(boolName, targetValue);
 		if (runOnce)
 		{
 			enabled = false;

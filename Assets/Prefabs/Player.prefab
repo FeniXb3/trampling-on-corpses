@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 95593433812406424}
   - component: {fileID: 114013612175044162}
   - component: {fileID: 114312298834860692}
+  - component: {fileID: 114401423331735516}
+  - component: {fileID: 114739802445777896}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -212,6 +214,21 @@ MonoBehaviour:
   rendererToHide: {fileID: 212877002961484046}
   eventType: 2
   delay: 0.2
+--- !u!114 &114401423331735516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715977967974324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f7a06e42b294d3db0b01aa34c8fb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95593433812406424}
+  eventType: 0
+  triggerName: Die
+  runOnce: 1
 --- !u!114 &114479028915433474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +242,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grayOutDuration: 2
   objectToColor: {fileID: 212877002961484046}
+--- !u!114 &114739802445777896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715977967974324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ad7cf32766248eb858d0bc934aabbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95593433812406424}
+  eventType: 0
+  boolName: Dead
+  targetValue: 1
+  runOnce: 1
 --- !u!212 &212877002961484046
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,7 +9,6 @@ public class Dead : MonoBehaviour
         ClearSavedPlayerColor();
         DisableInput();
         FadeOutCorpse();
-        PlayDyingAnimation();
         MakeCorpseWalkable();
         BlockPosition();
         TotalDeaths++;
@@ -31,13 +30,6 @@ public class Dead : MonoBehaviour
     {
         gameObject.tag = "Ground";
         gameObject.layer = LayerMask.NameToLayer("Ground");
-    }
-
-    private void PlayDyingAnimation()
-    {
-        var animator = GetComponent<Animator>();
-        animator.SetTrigger("Die");
-        animator.SetBool("Dead", true);
     }
 
     private void DisableInput()
