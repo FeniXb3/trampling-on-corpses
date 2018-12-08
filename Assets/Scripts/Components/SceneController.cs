@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] private Animator fadePanel;
-    
     private void OnEnable()
     {
         EventManager.Instance.AddListener(EventType.ChangeLevel, OnChangeLevel);
@@ -19,12 +17,14 @@ public class SceneController : MonoBehaviour
     private void OnChangeLevel(object arg)
     {
         var sceneName = arg as string;
-        NextLevel(sceneName);
+        if(!string.IsNullOrEmpty(sceneName))
+        {
+            NextLevel(sceneName);
+        }
     }
 
     public void NextLevel(string sceneName)
     {
-        fadePanel.SetTrigger("SceneExit");
         StartCoroutine(LoadScene(sceneName));
     }
 
