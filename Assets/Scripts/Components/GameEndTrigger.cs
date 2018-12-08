@@ -15,17 +15,10 @@ public class GameEndTrigger : MonoBehaviour
         {
             EventManager.Instance.TriggerEvent(EventType.EndGame, Dead.TotalDeaths);
             shineBurst.Emit(100);
-            StartCoroutine(HidePlayerBody());
             StartCoroutine(ShowEndScreen());
         }
     }
 
-    IEnumerator HidePlayerBody()
-    {
-        yield return new WaitForSeconds(0.2f);
-        GameObject.FindWithTag("Player").GetComponentInChildren<SpriteRenderer>().enabled = false;
-    }
-    
     IEnumerator ShowEndScreen()
     {
         yield return new WaitForSeconds(1.5f);
