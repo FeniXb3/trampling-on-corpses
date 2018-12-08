@@ -86,6 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f7a06e42b294d3db0b01aa34c8fb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 95463527539292554}
+  eventType: 1
+  triggerName: SceneExit
 --- !u!222 &222053722047339074
 CanvasRenderer:
   m_ObjectHideFlags: 1
