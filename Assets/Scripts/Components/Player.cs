@@ -29,10 +29,10 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
-        movement = new Movement(speed, jumpForce);
+        LoadServices();
+        movement = new Movement(inputService, speed, jumpForce);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        LoadServices();
     }
 
     private void FixedUpdate()
