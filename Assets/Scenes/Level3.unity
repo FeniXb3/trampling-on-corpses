@@ -1003,6 +1003,7 @@ GameObject:
   - component: {fileID: 916083284}
   - component: {fileID: 916083283}
   - component: {fileID: 916083282}
+  - component: {fileID: 916083285}
   m_Layer: 5
   m_Name: Sacrafices
   m_TagString: Untagged
@@ -1086,6 +1087,21 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916083280}
   m_CullTransparentMesh: 0
+--- !u!114 &916083285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916083280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d71a69f40c9b4110ad650b5bd096d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 916083282}
+  eventType: 2
+  triggerName: Show
+  delay: 1.5
 --- !u!4 &1009941425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4259229013912004, guid: ba70479ff69647c4db85dcf9045e9976,
@@ -2301,6 +2317,7 @@ GameObject:
   - component: {fileID: 2104016489}
   - component: {fileID: 2104016488}
   - component: {fileID: 2104016490}
+  - component: {fileID: 2104016491}
   m_Layer: 5
   m_Name: EndText
   m_TagString: Untagged
@@ -2384,6 +2401,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2104016491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2104016486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d71a69f40c9b4110ad650b5bd096d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2104016490}
+  eventType: 2
+  triggerName: Show
+  delay: 1.5
 --- !u!1 &2109027618
 GameObject:
   m_ObjectHideFlags: 0

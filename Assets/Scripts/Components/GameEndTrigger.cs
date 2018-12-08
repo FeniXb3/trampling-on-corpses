@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class GameEndTrigger : MonoBehaviour
 {
-    [SerializeField] private Animator theEndAnim;
-    [SerializeField] private Animator sacrificesAnim;
     [SerializeField] private Text sacrifices;
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -21,8 +19,6 @@ public class GameEndTrigger : MonoBehaviour
     IEnumerator ShowEndScreen()
     {
         yield return new WaitForSeconds(1.5f);
-        theEndAnim.SetTrigger("Show");
-        sacrificesAnim.SetTrigger("Show");
         sacrifices.text = $"you sacrificed {Dead.TotalDeaths} lives";
     }
 }
