@@ -169,11 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpForce: 11
+  jumpCooldownTime: 0.6
   groundedLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  spawnPointPrefab: {fileID: 1124583518966232, guid: edbd3cc5e3fbd4429b33a4add88e1640,
-    type: 2}
 --- !u!114 &114013612175044162
 MonoBehaviour:
   m_ObjectHideFlags: 1
