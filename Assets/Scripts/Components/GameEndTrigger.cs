@@ -13,6 +13,7 @@ public class GameEndTrigger : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            EventManager.Instance.TriggerEvent(EventType.EndGame, Dead.TotalDeaths);
             shineBurst.Emit(100);
             StartCoroutine(HidePlayerBody());
             StartCoroutine(ShowEndScreen());

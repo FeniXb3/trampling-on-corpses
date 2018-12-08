@@ -1,5 +1,6 @@
 ﻿internal enum EventType
 {
     Kill = 0,
-    ChangeLevel
+    ChangeLevel,
+    EndGame
 }
