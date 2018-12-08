@@ -1004,6 +1004,7 @@ GameObject:
   - component: {fileID: 916083283}
   - component: {fileID: 916083282}
   - component: {fileID: 916083285}
+  - component: {fileID: 916083286}
   m_Layer: 5
   m_Name: Sacrafices
   m_TagString: Untagged
@@ -1101,6 +1102,21 @@ MonoBehaviour:
   animator: {fileID: 916083282}
   eventType: 2
   triggerName: Show
+  delay: 1.5
+--- !u!114 &916083286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916083280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f7b56f1c3864ba48ce79fa0dc38fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 916083283}
+  eventType: 2
+  textTemplate: you sacrificed {arg} lives
   delay: 1.5
 --- !u!4 &1009941425 stripped
 Transform:
