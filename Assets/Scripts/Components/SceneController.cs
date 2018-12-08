@@ -5,6 +5,22 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private Animator fadePanel;
+    
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener(EventType.ChangeLevel, OnChangeLevel);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventType.ChangeLevel, OnChangeLevel);
+    }
+
+    private void OnChangeLevel(object arg)
+    {
+        var sceneName = arg as string;
+        NextLevel(sceneName);
+    }
 
     public void NextLevel(string sceneName)
     {
