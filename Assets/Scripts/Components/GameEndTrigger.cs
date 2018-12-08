@@ -21,7 +21,6 @@ public class GameEndTrigger : MonoBehaviour
     IEnumerator ShowEndScreen()
     {
         yield return new WaitForSeconds(1.5f);
-        EventManager.Instance.TriggerEvent(EventType.ChangeLevel, null);
         theEndAnim.SetTrigger("Show");
         sacrificesAnim.SetTrigger("Show");
         sacrifices.text = $"you sacrificed {Dead.TotalDeaths} lives";
