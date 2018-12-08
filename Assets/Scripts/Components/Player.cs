@@ -26,7 +26,26 @@ public class Player : MonoBehaviour
         {new Vector2(-0.5f, 0f), new Vector2(0f, 0f), new Vector2(0.5f, 0f)};
 
     private readonly List<RaycastHit2D> contactPoints = new List<RaycastHit2D>();
-    
+
+    private void OnEnable()
+    {
+        EventManager.Instance.AddListener(EventType.Kill, OnKill);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.RemoveListener(EventType.Kill, OnKill);
+    }
+
+    private void OnKill(object arg)
+    {
+        var killedObject = arg as GameObject;
+        if(killedObject == gameObject)
+        {
+            gameObject.AddComponent<Dead>();
+        }
+    }
+
     private void Start()
     {
         LoadServices();
