@@ -23,7 +23,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -51,5 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314237221b69e4a77aa463852b090851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventType: 0
+  runOnce: 0
   playerPrefab: {fileID: 1715977967974324, guid: 4918053087949544abbbd36303a23b53,
     type: 2}

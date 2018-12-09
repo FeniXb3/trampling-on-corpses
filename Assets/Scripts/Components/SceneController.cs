@@ -2,19 +2,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SceneController : EventHandlingComponent
 {
-    private void OnEnable()
-    {
-        EventManager.Instance.AddListener(EventType.ChangeLevel, OnChangeLevel);
-    }
-
-    private void OnDisable()
-    {
-        EventManager.Instance.RemoveListener(EventType.ChangeLevel, OnChangeLevel);
-    }
-
-    private void OnChangeLevel(object arg)
+    protected override void OnEvent(object arg)
     {
         var sceneName = arg as string;
         if(!string.IsNullOrEmpty(sceneName))

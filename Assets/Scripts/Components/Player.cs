@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : EventHandlingComponent
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
@@ -27,17 +27,8 @@ public class Player : MonoBehaviour
 
     private readonly List<RaycastHit2D> contactPoints = new List<RaycastHit2D>();
 
-    private void OnEnable()
-    {
-        EventManager.Instance.AddListener(EventType.Kill, OnKill);
-    }
 
-    private void OnDisable()
-    {
-        EventManager.Instance.RemoveListener(EventType.Kill, OnKill);
-    }
-
-    private void OnKill(object arg)
+    protected override void OnEvent(object arg)
     {
         var killedObject = arg as GameObject;
         if(killedObject == gameObject)
