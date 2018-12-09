@@ -7,7 +7,6 @@ public class Dead : MonoBehaviour
     private void Start()
     {
         ClearSavedPlayerColor();
-        FadeOutCorpse();
         MakeCorpseWalkable();
         BlockPosition();
         TotalDeaths++;
@@ -29,10 +28,5 @@ public class Dead : MonoBehaviour
     {
         gameObject.tag = "Ground";
         gameObject.layer = LayerMask.NameToLayer("Ground");
-    }
-
-    private void FadeOutCorpse()
-    {
-        gameObject.GetComponent<GrayOut>().enabled = true;
     }
 }
