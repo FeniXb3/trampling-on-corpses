@@ -7,7 +7,6 @@ public class Dead : MonoBehaviour
     private void Start()
     {
         ClearSavedPlayerColor();
-        DisableInput();
         FadeOutCorpse();
         MakeCorpseWalkable();
         BlockPosition();
@@ -30,11 +29,6 @@ public class Dead : MonoBehaviour
     {
         gameObject.tag = "Ground";
         gameObject.layer = LayerMask.NameToLayer("Ground");
-    }
-
-    private void DisableInput()
-    {
-        gameObject.GetComponent<Player>().enabled = false;
     }
 
     private void FadeOutCorpse()
