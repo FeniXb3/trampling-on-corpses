@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 0
-  runOnce: 1
+  runOnce: 0
   speed: 4
   jumpForce: 11
   jumpCooldownTime: 0.6
