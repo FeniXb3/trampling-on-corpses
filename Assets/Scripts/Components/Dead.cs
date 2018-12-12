@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using Services;
+using Services.Implementations;
+using UnityEngine;
 
 public class Dead : MonoBehaviour
 {
+    private ILocalStorageService localStorageService;
     public static int TotalDeaths;
     
     private void Start()
     {
+        LoadServices();
         ClearSavedPlayerColor();
-        DisableInput();
-        FadeOutCorpse();
-        PlayDyingAnimation();
         MakeCorpseWalkable();
         BlockPosition();
         TotalDeaths++;
@@ -17,7 +18,7 @@ public class Dead : MonoBehaviour
 
     private void ClearSavedPlayerColor()
     {
-        PlayerPrefsExtensions.DeleteColorKey("playerColor");
+        localStorageService.DeleteColorKey("playerColor");
     }
 
     private void BlockPosition()
@@ -33,20 +34,11 @@ public class Dead : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ground");
     }
 
-    private void PlayDyingAnimation()
+    private void LoadServices()
     {
-        var animator = GetComponent<Animator>();
-        animator.SetTrigger("Die");
-        animator.SetBool("Dead", true);
-    }
-
-    private void DisableInput()
-    {
-        gameObject.GetComponent<Player>().enabled = false;
-    }
-
-    private void FadeOutCorpse()
-    {
-        gameObject.GetComponent<GrayOut>().enabled = true;
+        if (localStorageService == null)
+        {
+            localStorageService = new PlayerPrefsLocalStorageService();
+        }
     }
 }

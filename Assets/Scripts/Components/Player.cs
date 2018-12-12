@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Services;
+using Services.Implementations;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : EventHandlingComponent
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCooldownTime = 0.6f;
     [SerializeField] private LayerMask groundedLayerMask;
-    [SerializeField] private GameObject spawnPointPrefab;
 
     private IInputService inputService;
     private ITimeService timeService;
@@ -27,18 +29,22 @@ public class Player : MonoBehaviour
 
     private readonly List<RaycastHit2D> contactPoints = new List<RaycastHit2D>();
 
-    private void Awake()
+
+    protected override void OnEvent(object arg)
     {
-        //DontDestroyOnLoad(gameObject);
-        SetSpawnPosition();
+        var killedObject = arg as GameObject;
+        if(killedObject == gameObject)
+        {
+            gameObject.AddComponent<Dead>();
+        }
     }
 
     private void Start()
     {
-        movement = new Movement(speed, jumpForce);
+        LoadServices();
+        movement = new Movement(inputService, speed, jumpForce);
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        LoadServices();
     }
 
     private void FixedUpdate()
@@ -70,18 +76,6 @@ public class Player : MonoBehaviour
         {
             timeService = new UnityTimeService();
         }
-    }
-
-    private void SetSpawnPosition()
-    {
-        var spawnPoint = GameObject.FindWithTag("SpawnPoint");
-
-        if (spawnPoint == null)
-        {
-            spawnPoint = Instantiate(spawnPointPrefab, transform.position, transform.rotation);
-        }
-
-        transform.position = spawnPoint.transform.position;
     }
 
     private void MoveHorizontally()
@@ -145,14 +139,14 @@ public class Player : MonoBehaviour
     IEnumerator JumpCooldown()
     {
         jumpCooldown = true;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(jumpCooldownTime);
         jumpCooldown = false;
     }
 
     IEnumerator LandCooldown()
     {
         landCooldown = true;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(jumpCooldownTime);
         landCooldown = false;
     }
 }

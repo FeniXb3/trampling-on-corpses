@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 222053722047339074}
   - component: {fileID: 114463201121908050}
   - component: {fileID: 95463527539292554}
+  - component: {fileID: 114702175747787180}
+  - component: {fileID: 114535762447452350}
   m_Layer: 5
   m_Name: FadePanel
   m_TagString: Untagged
@@ -74,6 +76,35 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114535762447452350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418241913895488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d71a69f40c9b4110ad650b5bd096d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95463527539292554}
+  eventType: 2
+  triggerName: SceneExit
+  delay: 1.5
+--- !u!114 &114702175747787180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418241913895488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f7a06e42b294d3db0b01aa34c8fb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95463527539292554}
+  eventType: 1
+  triggerName: SceneExit
 --- !u!222 &222053722047339074
 CanvasRenderer:
   m_ObjectHideFlags: 1

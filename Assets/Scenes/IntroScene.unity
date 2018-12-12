@@ -586,10 +586,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1418241913895488, guid: ee0aa942d8da8495fb14546a573d4c6a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee0aa942d8da8495fb14546a573d4c6a, type: 2}
   m_IsPrefabAsset: 0
@@ -750,6 +746,11 @@ Prefab:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 2070982558}
+    - target: {fileID: 114024828412538846, guid: fc95b11a6f62e47c6b9c38a855a1b856,
+        type: 2}
+      propertyPath: sceneToLoad
+      value: Level1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc95b11a6f62e47c6b9c38a855a1b856, type: 2}
   m_IsPrefabAsset: 0
