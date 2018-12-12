@@ -1,13 +1,18 @@
-﻿using UnityEngine;
+﻿using Services;
+using Services.Implementations;
+using UnityEngine;
 
 public class Colorizer : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer objectToColor;
 
+    private ILocalStorageService localStorageService;
     private static readonly string colorPrefName = "playerColor";
 
     private void Start()
     {
+        LoadServices();
+        
         if (HasColorToSet())
         {
             LoadColor();
@@ -20,12 +25,12 @@ public class Colorizer : MonoBehaviour
 
     private bool HasColorToSet()
     {
-        return PlayerPrefsExtensions.HasColorKey(colorPrefName);
+        return localStorageService.HasColorKey(colorPrefName);
     }
 
     private void LoadColor()
     {
-        objectToColor.color = PlayerPrefsExtensions.GetColor(colorPrefName);
+        objectToColor.color = localStorageService.GetColor(colorPrefName);
     }
 
     private void ObtainRandomColor()
@@ -33,7 +38,15 @@ public class Colorizer : MonoBehaviour
         var randomColor = Random.ColorHSV(0, 1f, .25f, .25f, .75f, .75f);
         objectToColor.color = randomColor;
 
-        PlayerPrefsExtensions.SetColor(colorPrefName, randomColor);
+        localStorageService.SetColor(colorPrefName, randomColor);
+    }
+
+    private void LoadServices()
+    {
+        if (localStorageService == null)
+        {
+            localStorageService = new PlayerPrefsLocalStorageService();
+        }
     }
     
 }

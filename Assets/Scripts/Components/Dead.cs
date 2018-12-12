@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using Services;
+using Services.Implementations;
+using UnityEngine;
 
 public class Dead : MonoBehaviour
 {
+    private ILocalStorageService localStorageService;
     public static int TotalDeaths;
     
     private void Start()
     {
+        LoadServices();
         ClearSavedPlayerColor();
         MakeCorpseWalkable();
         BlockPosition();
@@ -14,7 +18,7 @@ public class Dead : MonoBehaviour
 
     private void ClearSavedPlayerColor()
     {
-        PlayerPrefsExtensions.DeleteColorKey("playerColor");
+        localStorageService.DeleteColorKey("playerColor");
     }
 
     private void BlockPosition()
@@ -28,5 +32,13 @@ public class Dead : MonoBehaviour
     {
         gameObject.tag = "Ground";
         gameObject.layer = LayerMask.NameToLayer("Ground");
+    }
+
+    private void LoadServices()
+    {
+        if (localStorageService == null)
+        {
+            localStorageService = new PlayerPrefsLocalStorageService();
+        }
     }
 }
